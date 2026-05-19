@@ -6,9 +6,12 @@ Stats = {
 "Agilidad" : 0,
 "Fuerza_SW" : 0,
 "Armas" : 0,
+"exp_actual": 0,
+"exp_siguiente_nivel": 50,
+"nivel": 1
 }
 Inventario = ["Comida en lata"]
-PuntosExp = 2
+Puntos_habilidad = 2
 Personaje = False
 #-----------------------------------------Creación del personaje------------------------------------------------
 while Personaje == False:
@@ -44,22 +47,22 @@ while Personaje == False:
         case _:
             print("Esa clase no existe en esta galaxia")
             Personaje = False
-while PuntosExp > 0 and Personaje == True:
-    print(f"Tienes {PuntosExp} puntos de mejora disponibles.")
+while Puntos_habilidad > 0 and Personaje == True:
+    print(f"Tienes {Puntos_habilidad} puntos de mejora disponibles.")
     Elección = input ("""Que quieres mejorar? Fuerza / Agilidad :
                       """).lower()
     match Elección:
         case "fuerza":
             Stats["Vigor"]+=1
-            PuntosExp-=1
+            Puntos_habilidad-=1
             print(f"Level Up! Tu fuerza a aumentado, {Nombre_jugador}")
         case "agilidad":
             Stats["Agilidad"]+=1
-            PuntosExp-=1
+            Puntos_habilidad-=1
             print("Level Up! Eres agil como el maestro Yoda")
         case _:
             Stats["Vida_jugador"]-=10
-            PuntosExp-=2
+            Puntos_habilidad-=2
             print("""Esa arrogancia fue la que condujo al lado oscuro
             al joven Anakin""")
 if Nombre_jugador == "Cal Kestis":
